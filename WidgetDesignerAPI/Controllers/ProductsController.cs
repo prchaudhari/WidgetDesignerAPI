@@ -5,6 +5,7 @@ using WidgetDesignerAPI.Models;
 
 namespace WidgetDesignerAPI.API.Controllers
 {
+    //api
     [ApiController]
     [Route("/api/[controller]")]
     public class ProductsController : Controller
