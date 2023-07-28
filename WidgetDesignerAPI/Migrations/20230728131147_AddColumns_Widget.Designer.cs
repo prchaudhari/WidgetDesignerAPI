@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WidgetDesignerAPI.API.Data;
 
@@ -11,9 +12,11 @@ using WidgetDesignerAPI.API.Data;
 namespace WidgetDesignerAPI.API.Migrations
 {
     [DbContext(typeof(WidgetDesignerAPIDbContext))]
-    partial class WidgetDesignerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230728131147_AddColumns_Widget")]
+    partial class AddColumns_Widget
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,9 +70,7 @@ namespace WidgetDesignerAPI.API.Migrations
 
                     b.Property<int>("Height")
                         .HasColumnType("int");
-
-                    b.Property<string>("WidgetCSS")
-                        .HasColumnType("nvarchar(max)");
+                                      
 
                     b.Property<string>("WidgetCSSUrl")
                         .HasMaxLength(200)

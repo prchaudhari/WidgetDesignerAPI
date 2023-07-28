@@ -16,7 +16,10 @@ namespace WidgetDesignerAPI.Models
         public int Width { get; set; }
         public int Height { get; set; }
         public string WidgetHtml { get; set; }
-        public string WidgetIconUrl { get; set; }
-
+        [MaxLength(200)]
+        public string? WidgetIconUrl { get; set; }
+        [MaxLength(200)]
+        public string? WidgetCSSUrl { get; set; }
+        public string? WidgetCSS { get; set; }
     }
 }
