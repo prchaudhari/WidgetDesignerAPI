@@ -49,7 +49,7 @@ namespace WidgetDesignerAPI.API.Controllers
 
         [HttpPut]
         [Route("{id:int}")]
-        public async Task<IActionResult> UpdateProduct([FromRoute] int id, Widgets updatewidgetRequest)
+        public async Task<IActionResult> UpdateWidget([FromRoute] int id, Widgets updatewidgetRequest)
         {
             var widget = await _widgetDesignerAPIDbContext.Widgets.FindAsync(id);
 
@@ -59,6 +59,7 @@ namespace WidgetDesignerAPI.API.Controllers
             widget.WidgetName = updatewidgetRequest.WidgetName;
             widget.WidgetHtml = updatewidgetRequest.WidgetHtml;
             widget.DataSourceJson = updatewidgetRequest.DataSourceJson;
+            widget.Description = updatewidgetRequest.Description;
             widget.Width = updatewidgetRequest.Width;
             widget.Height = updatewidgetRequest.Height;
 

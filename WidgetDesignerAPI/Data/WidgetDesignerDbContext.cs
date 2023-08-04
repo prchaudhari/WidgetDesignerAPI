@@ -10,5 +10,6 @@ namespace WidgetDesignerAPI.API.Data
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Widgets> Widgets { get; set; }
+        public DbSet<Pages> Pages { get; set; }
     }
 }
