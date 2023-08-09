@@ -15,6 +15,12 @@ namespace WidgetDesignerAPI.Models
         public string DataSourceJson { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public int StartCol { get; set; }
+        public int StartRow { get; set; }
+        [MaxLength(200)]
+        public string DataBindingJsonNode { get; set; }
+        [MaxLength(200)]
+        public string FontName { get; set; }
         public string WidgetHtml { get; set; }
         [MaxLength(200)]
         public string? WidgetIconUrl { get; set; }
