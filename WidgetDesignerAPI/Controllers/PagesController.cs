@@ -20,16 +20,23 @@ namespace WidgetDesignerAPI.API.Controllers
         public async Task<IActionResult> GetAllPages()
         {
             var pages = await _widgetDesignerAPIDbContext.Pages.ToListAsync();
-
             return Ok(pages);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPage([FromBody] Pages page)
+        public async Task<IActionResult> AddPage([FromBody] PageModel page)
         {
             //widget.Id = Guid.NewGuid();
-
-            await _widgetDesignerAPIDbContext.Pages.AddAsync(page);
+            var newImage = new Pages
+            {
+                PageName = page.PageName,
+                Description = page.Description,
+                PageHtml = page.PageHtml,
+                DataSourceJson = page.DataSourceJson,
+                PageCSSUrl = page.PageCSSUrl
+                // Set other fields as needed
+            };
+            await _widgetDesignerAPIDbContext.Pages.AddAsync(newImage);
             await _widgetDesignerAPIDbContext.SaveChangesAsync();
 
             return Ok(page);
@@ -49,7 +56,7 @@ namespace WidgetDesignerAPI.API.Controllers
 
         [HttpPut]
         [Route("{id:int}")]
-        public async Task<IActionResult> UpdatePage([FromRoute] int id, Pages updatepageRequest)
+        public async Task<IActionResult> UpdatePage([FromRoute] int id, PageModel updatepageRequest)
         {
             var page = await _widgetDesignerAPIDbContext.Pages.FindAsync(id);
 
