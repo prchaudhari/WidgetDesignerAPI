@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WidgetDesignerAPI.API.Data;
 
@@ -11,9 +12,11 @@ using WidgetDesignerAPI.API.Data;
 namespace WidgetDesignerAPI.API.Migrations
 {
     [DbContext(typeof(WidgetDesignerAPIDbContext))]
-    partial class WidgetDesignerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230809105641_ModifyHtmlColumnType")]
+    partial class ModifyHtmlColumnType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,64 +24,6 @@ namespace WidgetDesignerAPI.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("WidgetDesignerAPI.Models.Fonts", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("FontClass")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("FontName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Fonts");
-                });
-
-            modelBuilder.Entity("WidgetDesignerAPI.Models.PageWidgetsDetails", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PageId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StartCol")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StartRow")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WidgetId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Width")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PageId");
-
-                    b.HasIndex("WidgetId");
-
-                    b.ToTable("PageWidgetsDetails");
-                });
 
             modelBuilder.Entity("WidgetDesignerAPI.Models.Pages", b =>
                 {
@@ -203,25 +148,6 @@ namespace WidgetDesignerAPI.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Widgets");
-                });
-
-            modelBuilder.Entity("WidgetDesignerAPI.Models.PageWidgetsDetails", b =>
-                {
-                    b.HasOne("WidgetDesignerAPI.Models.Pages", "Page")
-                        .WithMany()
-                        .HasForeignKey("PageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WidgetDesignerAPI.Models.Pages", "Widget")
-                        .WithMany()
-                        .HasForeignKey("WidgetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Page");
-
-                    b.Navigation("Widget");
                 });
 #pragma warning restore 612, 618
         }

@@ -15,5 +15,9 @@ namespace WidgetDesignerAPI.Models
         public IFormFile WidgetIconUrl { get; set; }       
         public string? WidgetCSSUrl { get; set; }
         public string? WidgetCSS { get; set; }
+        public int StartCol { get; set; } = 0;
+        public int StartRow { get; set; } = 0;
+        public string DataBindingJsonNode { get; set; }
+        public string FontName { get; set; }
     }
 }

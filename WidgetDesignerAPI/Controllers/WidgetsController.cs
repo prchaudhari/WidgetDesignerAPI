@@ -68,6 +68,10 @@ namespace WidgetDesignerAPI.API.Controllers
             widget.Description = updatewidgetRequest.Description;
             widget.Width = updatewidgetRequest.Width;
             widget.Height = updatewidgetRequest.Height;
+            widget.StartRow = updatewidgetRequest.StartRow;
+            widget.StartCol = updatewidgetRequest.StartCol;
+            widget.DataBindingJsonNode = updatewidgetRequest.DataBindingJsonNode;
+            widget.FontName = updatewidgetRequest.FontName;
 
             await _widgetDesignerAPIDbContext.SaveChangesAsync();
 
@@ -103,7 +107,11 @@ namespace WidgetDesignerAPI.API.Controllers
                 WidgetHtml = imageModel.WidgetHtml,
                 Width = imageModel.Width,
                 Height = imageModel.Height,
-                DataSourceJson = imageModel.DataSourceJson
+                DataSourceJson = imageModel.DataSourceJson,
+                DataBindingJsonNode = imageModel.DataBindingJsonNode,
+                FontName = imageModel.FontName,
+                StartCol = imageModel.StartCol,
+                StartRow = imageModel.StartRow,
                 
                 // Set other fields as needed
             };

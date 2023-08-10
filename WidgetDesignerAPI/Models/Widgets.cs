@@ -21,6 +21,8 @@ namespace WidgetDesignerAPI.Models
         public string DataBindingJsonNode { get; set; }
         [MaxLength(200)]
         public string FontName { get; set; }
+        [Column(TypeName = "text")]
+        [MaxLength]
         public string WidgetHtml { get; set; }
         [MaxLength(200)]
         public string? WidgetIconUrl { get; set; }
