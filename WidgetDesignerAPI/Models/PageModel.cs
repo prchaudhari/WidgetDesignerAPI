@@ -8,6 +8,6 @@
         public string DataSourceJson { get; set; }
         public string PageHtml { get; set; }
         public string? PageCSSUrl { get; set; }
-        public List<PageWidgetsDetails> Widgets { get; set; }
+        public List<PageWidgetsDetailsModel> Widgets { get; set; }
     }
 }

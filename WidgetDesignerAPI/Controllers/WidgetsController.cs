@@ -53,6 +53,19 @@ namespace WidgetDesignerAPI.API.Controllers
             return Ok(widget);
         }
 
+        [HttpGet]
+        [Route("api/PageWidgets")]
+       // [Route("{GetPageWidgets/id:int}")]
+        public async Task<IActionResult> GetPageWidgets(int pageid)
+        {
+            var page =  _widgetDesignerAPIDbContext.PageWidgetsDetails.Where(x => x.PageId == pageid);
+
+            if (page == null)
+                return NotFound();
+
+            return Ok(page);
+        }
+
         [HttpPut]
         [Route("{id:int}")]
         public async Task<IActionResult> UpdateWidget([FromRoute] int id, Widgets updatewidgetRequest)
