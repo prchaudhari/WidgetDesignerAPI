@@ -135,15 +135,15 @@ namespace WidgetDesignerAPI.API.Controllers
 
             if (pageWidgets.Count > 0 )
             {
-                _widgetDesignerAPIDbContext.PageWidgetsDetails.Where(a => a.PageId == id).ExecuteDelete();
-                _widgetDesignerAPIDbContext.SaveChanges();
+                _widgetDesignerAPIDbContext.PageWidgetsDetails.RemoveRange(pageWidgets);
+                await _widgetDesignerAPIDbContext.SaveChangesAsync();
             }
             var page = _widgetDesignerAPIDbContext.Pages.AsTracking().FirstOrDefault(x => x.Id == id);
             if (page == null)
                 return NotFound();
-            _widgetDesignerAPIDbContext.Entry(page).State = EntityState.Deleted;
+          //  _widgetDesignerAPIDbContext.Entry(page).State = EntityState.Deleted;
             _widgetDesignerAPIDbContext.Pages.Remove(page);
-             _widgetDesignerAPIDbContext.SaveChanges();
+            await _widgetDesignerAPIDbContext.SaveChangesAsync();
           
             return Ok(page);
         }
