@@ -15,4 +15,14 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\uploads\22eadf18-5133-4174-9632-644268f1f3e8.jpg" />
+    <None Include="wwwroot\uploads\5a94d80d-d927-4f63-aa2f-d061a82adadb.jpg" />
+    <None Include="wwwroot\uploads\730be0e1-b33c-4a5d-bdff-be057f22876c.jpg" />
+    <None Include="wwwroot\uploads\8e689eb1-ffe6-4272-a4d6-9e9821ea7c2d.jpg" />
+    <None Include="wwwroot\uploads\900cb6d4-cc5c-4a22-b48f-78590b77e2e6.jpg" />
+    <None Include="wwwroot\uploads\b6fefb26-a3bc-49d1-abfa-f3c95553e965.webp" />
+    <None Include="wwwroot\uploads\try.jpg" />
+  </ItemGroup>
+
 </Project>

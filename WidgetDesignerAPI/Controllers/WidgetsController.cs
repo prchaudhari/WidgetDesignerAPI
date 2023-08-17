@@ -141,21 +141,32 @@ namespace WidgetDesignerAPI.API.Controllers
             {
                 return "";
             }
-            string uploadsFolder = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,"uploads");
-           // var uploadsFolder = Path.Combine(this.Environment.WebRootPath, "uploads");
-            if (!Directory.Exists(uploadsFolder))
-            {
-                Directory.CreateDirectory(uploadsFolder);
-            }
-            var imageName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-            var imagePath = Path.Combine(uploadsFolder, imageName);
+            // string uploadsFolder = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,"uploads");
+            //// var uploadsFolder = Path.Combine(this.Environment.WebRootPath, "uploads");
+            // if (!Directory.Exists(uploadsFolder))
+            // {
+            //     Directory.CreateDirectory(uploadsFolder);
+            // }
+            var imageName = Guid.NewGuid().ToString() + imageFile.FileName;// Path.GetExtension(imageFile.FileName);
+            //var imagePath = Path.Combine(uploadsFolder, imageName);
 
+            //using (var stream = new FileStream(imagePath, FileMode.Create))
+            //{
+            //    imageFile.CopyTo(stream);
+            //}
+
+            var builder = new ConfigurationBuilder()
+                                .SetBasePath(Directory.GetCurrentDirectory())
+                                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            string LogFilePath = "wwwroot/uploads";//builder.Build().GetSection("Path").GetSection("ImagesPath").Value;
+            var imagePath = Path.Combine(LogFilePath, imageName);
             using (var stream = new FileStream(imagePath, FileMode.Create))
             {
                 imageFile.CopyTo(stream);
             }
 
-            var imageUrl = Url.Content(Path.Combine("~/uploads", imageName));
+            var imageUrl = imageName;// Url.Content( Path.Combine(LogFilePath, imageName));
             return imageUrl;
         }
 
