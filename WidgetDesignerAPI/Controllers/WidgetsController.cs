@@ -74,9 +74,12 @@ namespace WidgetDesignerAPI.API.Controllers
 
             if (widget == null)
                 return NotFound();
-            string imagePath = UpdateImage(updatewidgetRequest.WidgetIconUrl,widget.WidgetIconUrl);
-
-            widget.WidgetIconUrl = imagePath;
+            if(updatewidgetRequest.WidgetIconUrl  != null)
+            {
+                string imagePath = UpdateImage(updatewidgetRequest.WidgetIconUrl, widget.WidgetIconUrl);
+                widget.WidgetIconUrl = imagePath;
+            }
+           
             widget.WidgetName = updatewidgetRequest.WidgetName;
             widget.WidgetHtml = updatewidgetRequest.WidgetHtml;
             widget.DataSourceJson = updatewidgetRequest.DataSourceJson;

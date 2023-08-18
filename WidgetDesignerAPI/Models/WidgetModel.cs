@@ -12,7 +12,7 @@ namespace WidgetDesignerAPI.Models
         public int Width { get; set; }
         public int Height { get; set; }
         public string WidgetHtml { get; set; }      
-        public IFormFile WidgetIconUrl { get; set; }       
+        public IFormFile? WidgetIconUrl { get; set; }       
         public string? WidgetCSSUrl { get; set; }
         public string? WidgetCSS { get; set; }
         public int StartCol { get; set; } = 0;
