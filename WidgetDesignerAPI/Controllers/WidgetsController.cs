@@ -68,13 +68,15 @@ namespace WidgetDesignerAPI.API.Controllers
 
         [HttpPut]
         [Route("{id:int}")]
-        public async Task<IActionResult> UpdateWidget([FromRoute] int id, Widgets updatewidgetRequest)
+        public async Task<IActionResult> UpdateWidget([FromRoute] int id, [FromForm] WidgetModel updatewidgetRequest)
         {
             var widget = await _widgetDesignerAPIDbContext.Widgets.FindAsync(id);
 
             if (widget == null)
                 return NotFound();
+            string imagePath = UpdateImage(updatewidgetRequest.WidgetIconUrl,widget.WidgetIconUrl);
 
+            widget.WidgetIconUrl = imagePath;
             widget.WidgetName = updatewidgetRequest.WidgetName;
             widget.WidgetHtml = updatewidgetRequest.WidgetHtml;
             widget.DataSourceJson = updatewidgetRequest.DataSourceJson;
@@ -170,6 +172,52 @@ namespace WidgetDesignerAPI.API.Controllers
             return imageUrl;
         }
 
+        private string UpdateImage(IFormFile imageFile,string updateUrl)
+        {
+            if (imageFile == null)
+            {
+                return "";
+            }
+            DeleteFile(updateUrl);
+        
+            var imageName = Guid.NewGuid().ToString() + imageFile.FileName;// Path.GetExtension(imageFile.FileName);
+        
+            var builder = new ConfigurationBuilder()
+                                .SetBasePath(Directory.GetCurrentDirectory())
+                                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            string LogFilePath = "wwwroot/uploads";//builder.Build().GetSection("Path").GetSection("ImagesPath").Value;
+            var imagePath = Path.Combine(LogFilePath, imageName);
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                imageFile.CopyTo(stream);
+            }
+
+            var imageUrl = imageName;// Url.Content( Path.Combine(LogFilePath, imageName));
+            return imageUrl;
+        }
+        private void DeleteFile(string filePath)
+        {
+            try
+            {
+                string wwwRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+                string fullPath = Path.Combine(wwwRootPath, filePath);
+                
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                    Console.WriteLine($"File {filePath} deleted successfully.");
+                }
+                else
+                {
+                    Console.WriteLine($"File {filePath} does not exist.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
 
     }
 }
