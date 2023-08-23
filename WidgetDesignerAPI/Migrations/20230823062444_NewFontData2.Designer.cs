@@ -12,8 +12,8 @@ using WidgetDesignerAPI.API.Data;
 namespace WidgetDesignerAPI.API.Migrations
 {
     [DbContext(typeof(WidgetDesignerAPIDbContext))]
-    [Migration("20230818141417_Fontdata")]
-    partial class Fontdata
+    [Migration("20230823062444_NewFontData2")]
+    partial class NewFontData2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
