@@ -5,7 +5,7 @@
 namespace WidgetDesignerAPI.API.Migrations
 {
     /// <inheritdoc />
-    public partial class widgetsData : Migration
+    public partial class widgetEnitialData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,8 +16,6 @@ namespace WidgetDesignerAPI.API.Migrations
              "WidgetCSSUrl", "WidgetCSS", "DataBindingJsonNode", "FontName", "StartCol", "StartRow" },
        values: new object[,]
        {
-                { "Satya Mev Logo", "Satya Mev Jayate", "[{\"src\":\"assets/satya.jpg\"}]", "1", "2", "{{for abc}}<div><img src={{:src}}></img></div>{{/for}}",
-                 "7630a626-0769-4b7f-8cd6-2c8e79abd94cSatyaMev.PNG", "NULL", "NULL", "SatyaMevLogo", "fa fa-address-card", "0", "0" },
                   { "Adhar Card Header", "Adhar Card Header (Government Of India)", "[{\"src\":\"assets/sampleHeader.jpg\"}]",
                  "1", "2", "<div><img src={{:src}}></img></div>", "43b95ca3-b0d0-412e-b3b1-5c9abf9d4e41sampleHeader.jpg", "NULL", "NULL",
                  "AdharCardHeader", "fa fa-address-card", "0", "0" },
@@ -28,7 +26,9 @@ namespace WidgetDesignerAPI.API.Migrations
                      { "Adharcard Unique no", "Adharcard Unique Identity number", "[{\"adharnumber\":\"0000 1111 2222\"}]", "1", "2", "<div class=\"adharnumbercss\">{{:adharnumber}}</div>", "1d836e0d-6b8c-48a3-99b3-16b4ebae27e9adharnumber.PNG", "NULL", "NULL",
                  "AdharcardUniqueNo", "fa fa-id-card", "0", "0" },
                       { "Adharcard QR", "QR code for Unique Identification", "[{\"src\":\"assets/sampleAdharQr.jpg\"}]", "1", "2", "<div><img src={{:src}}></img></div>", "fdfaba2a-38f7-490f-affc-fa34f3d49790sampleAdharQr.jpg", "NULL", "NULL",
-                 "AdharcardQR", "fa fa-id-card", "0", "0" }
+                 "AdharcardQR", "fa fa-id-card", "0", "0" },
+                         { "Satyamev Jayate Logo", "Logo of Satyamev Jayate", "[{\"src\":\"assets/logosatya.jpg\"}]", "1", "2", "<div><img src={{:src}}></img></div>",
+                 "9fbea43c-956b-4659-a582-617ca4268724logoSatyaMevJayate.PNG", "NULL", "NULL", "SatyamevJayateLogo", "fa fa-id-card ", "0", "0" },
 
          });
         }
