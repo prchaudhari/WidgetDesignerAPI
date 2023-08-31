@@ -99,7 +99,7 @@ namespace WidgetDesignerAPI.API.Controllers
             if (pageWidgets.Count() != null)
             {
                 _widgetDesignerAPIDbContext.PageWidgetsDetails.Where(a=>a.PageId==id).ExecuteDelete();
-                await _widgetDesignerAPIDbContext.SaveChangesAsync();
+                //await _widgetDesignerAPIDbContext.SaveChangesAsync();
             }
 
             //Add new records for widgets for the page

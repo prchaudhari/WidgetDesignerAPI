@@ -16,7 +16,7 @@ namespace WidgetDesignerAPI.Models
         public int WidgetId { get; set; }
 
         [ForeignKey("WidgetId")] 
-        public Pages Widget { get; set; }
+        public Widgets Widget { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
         public int StartCol { get; set; }
