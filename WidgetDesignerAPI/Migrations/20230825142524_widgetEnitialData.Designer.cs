@@ -12,8 +12,8 @@ using WidgetDesignerAPI.API.Data;
 namespace WidgetDesignerAPI.API.Migrations
 {
     [DbContext(typeof(WidgetDesignerAPIDbContext))]
-    [Migration("20230825081215_widgetsData")]
-    partial class widgetsData
+    [Migration("20230825142524_widgetEnitialData")]
+    partial class widgetEnitialData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
