@@ -33,7 +33,9 @@ namespace WidgetDesignerAPI.API.Controllers
                 Description = page.Description,
                 PageHtml = page.PageHtml,
                 DataSourceJson = page.DataSourceJson,
-                PageCSSUrl = page.PageCSSUrl
+                PageCSSUrl = page.PageCSSUrl,
+                PageWidth = page.PageWidth,
+                PageHeight = page.PageHeight,
                 // Set other fields as needed
             };
 
@@ -89,7 +91,8 @@ namespace WidgetDesignerAPI.API.Controllers
             page.DataSourceJson = updatepageRequest.DataSourceJson;
             page.Description = updatepageRequest.Description;
             page.PageCSSUrl = updatepageRequest.PageCSSUrl;
-
+            page.PageWidth = updatepageRequest.PageWidth;   
+            page.PageHeight = updatepageRequest.PageHeight;
             await _widgetDesignerAPIDbContext.SaveChangesAsync();
 
             //********************Details table********
