@@ -14,6 +14,8 @@ namespace WidgetDesignerAPI.Models
         public string Description { get; set; }
         public string DataSourceJson { get; set; }
         public string PageHtml { get; set; }
+        public string PageContent { get; set; }
+
         [MaxLength(200)]
         public string? PageCSSUrl { get; set; }
 

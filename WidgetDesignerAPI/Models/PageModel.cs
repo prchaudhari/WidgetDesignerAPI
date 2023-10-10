@@ -7,6 +7,7 @@
         public string Description { get; set; }
         public string DataSourceJson { get; set; }
         public string PageHtml { get; set; }
+        public string PageContent { get; set; }
         public string? PageCSSUrl { get; set; }
         public decimal? PageWidth { get; set; }
         public decimal? PageHeight { get; set; }
