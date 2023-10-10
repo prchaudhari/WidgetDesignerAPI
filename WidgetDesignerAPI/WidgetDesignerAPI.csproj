@@ -12,6 +12,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="PuppeteerSharp" Version="12.0.0" />
+    <PackageReference Include="Serilog" Version="3.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
@@ -23,6 +26,10 @@
     <None Include="wwwroot\uploads\900cb6d4-cc5c-4a22-b48f-78590b77e2e6.jpg" />
     <None Include="wwwroot\uploads\b6fefb26-a3bc-49d1-abfa-f3c95553e965.webp" />
     <None Include="wwwroot\uploads\try.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\output\" />
   </ItemGroup>
 
 </Project>
