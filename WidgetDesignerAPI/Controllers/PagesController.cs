@@ -26,7 +26,7 @@ namespace WidgetDesignerAPI.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddPage([FromBody] PageModel page)
         {
-            //widget.Id = Guid.NewGuid();
+            //widget.Id = Guid.NewGuid(); sd
             var newImage = new Pages
             {
                 PageName = page.PageName,
