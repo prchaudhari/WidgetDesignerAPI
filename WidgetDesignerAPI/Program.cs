@@ -1,8 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using WidgetDesignerAPI.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
+// Configure Serilog to write to a log file
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)  // Log to a file with daily rolling
+    .CreateLogger();
 // Add services to the container.
 
 builder.Services.AddControllers();
