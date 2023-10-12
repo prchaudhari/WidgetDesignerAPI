@@ -36,8 +36,9 @@ namespace WidgetDesignerAPI.API.Controllers
                 PageCSSUrl = page.PageCSSUrl,
                 PageWidth = page.PageWidth,
                 PageHeight = page.PageHeight,
-                // Set other fields as needed
-            };
+                PageContent = page.PageContent
+            // Set other fields as needed
+        };
 
             await _widgetDesignerAPIDbContext.Pages.AddAsync(newImage);
             await _widgetDesignerAPIDbContext.SaveChangesAsync();
@@ -93,6 +94,7 @@ namespace WidgetDesignerAPI.API.Controllers
             page.PageCSSUrl = updatepageRequest.PageCSSUrl;
             page.PageWidth = updatepageRequest.PageWidth;   
             page.PageHeight = updatepageRequest.PageHeight;
+            page.PageContent = updatepageRequest.PageContent;
             await _widgetDesignerAPIDbContext.SaveChangesAsync();
 
             //********************Details table********
