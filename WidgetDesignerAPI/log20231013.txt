@@ -1,0 +1,15 @@
+2023-10-13 17:03:53.573 +05:30 [INF] CliWrap.Buffered.BufferedCommandResult
+2023-10-13 17:05:51.409 +05:30 [INF] 
+2023-10-13 17:05:51.449 +05:30 [INF] 
+2023-10-13 17:06:49.250 +05:30 [INF] 
+2023-10-13 17:06:50.383 +05:30 [INF] 26160 bytes written to file E:\QuikSyncProjects\Dynamic Html creation\output.pdf
+
+2023-10-13 17:15:25.589 +05:30 [INF] 
+2023-10-13 17:15:25.621 +05:30 [INF] 114091 bytes written to file E:\QuikSyncProjects\Dynamic Html creation\output.pdf
+
+2023-10-13 17:17:07.431 +05:30 [INF] 
+2023-10-13 17:17:07.461 +05:30 [INF] 113658 bytes written to file E:\QuikSyncProjects\Dynamic Html creation\output.pdf
+
+2023-10-13 17:18:30.901 +05:30 [INF] 
+2023-10-13 17:18:30.932 +05:30 [INF] 114193 bytes written to file E:\QuikSyncProjects\Dynamic Html creation\output.pdf
+
