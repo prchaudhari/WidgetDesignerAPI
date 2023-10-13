@@ -1,0 +1,124 @@
+/*You can add global styles to this file, and also import other style files*/
+/*.main {
+  background-color: #2F3034;
+  width: 2000px;
+}*/
+/*.maingrid {
+  width: 1750px;
+  background-color:yellow;
+}*/
+.scrollable-section {
+  overflow: auto; /* Add vertical and/or horizontal scrollbars if content overflows */
+  /* You can further style the scrollable section as needed */
+}
+  #main1 {
+  padding-top: 10px;
+  border: 1px solid groove;
+ /* width: 1750px;*/
+}
+
+.grid-stack {
+  position: relative;
+  /*width: 1750px;*/
+   background-color: white;
+}
+
+.grid-container {
+  border: 1px solid groove;
+  width:100%;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-stack-item {
+  border: 0;
+  overflow: hidden;
+}
+
+.grid-stack-item-content {
+  background-color: white;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: none;
+}
+
+section {
+  padding: 0 15px 0 15px;
+}
+
+.grid-stack-item-removing {
+  opacity: 0.8;
+  filter: blur(5px);
+}
+
+@media all and (max-width: 575px) {
+  #hero {
+    margin-top: 32px;
+  }
+}
+
+.logo {
+  display: inline;
+  margin-right: 15px;
+}
+
+#trash {
+  background-color: #cc6857;
+}
+
+.newWidget > .grid-stack-item-content {
+  background-color: #6cad84;
+}
+  .overflowtext {
+    color: blue;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    width: 20px;
+    background-color:aqua;
+  }
+.clearfix1{
+     text-align:center;
+     width:1260px;
+  }
+
+.rounded-3 {
+  width:100%;
+  border: 1px solid grey;
+  padding: 3px;
+}
+
+
+  .text-white {
+    text-align: center;
+  }
+.anyClass {
+  height: 475px;
+  overflow-y: scroll;
+}
+/*.anyClassx {
+  width: 1260px;
+  overflow-x: scroll;
+}*/
+
+.btn1 {
+  background-color: rgba(52,58,64,255);
+  color: white;
+  border: 1px solid #80bdff;
+}
+ 
+
+
