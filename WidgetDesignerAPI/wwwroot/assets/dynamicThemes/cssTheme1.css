@@ -1,0 +1,43 @@
+.demo
+{
+    width:800px;
+    background-color:gainsboro;
+    color:blue;
+}
+.demo tbody tr{
+  background-color:aliceblue;
+  color: red;
+}
+
+.imgcss {
+  width: 100%;
+  height: 100%;
+}
+
+
+.divdemo {
+  width: auto;
+  height: auto;
+  background-color: gainsboro;
+  color: black;
+}
+
+.adharnumbercss {
+  font-weight: bold;
+  color: white;
+  font-size: 23px;
+  width: 100%;
+  height: 100%;
+}
+
+.profilephoto {
+  border: 3px solid brown;
+  width: 100%;
+  height: 100%;
+}
+
+.widgetHtml {
+  background-color: gray;
+  width: auto;
+}
+

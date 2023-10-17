@@ -1,0 +1,42 @@
+2023-10-17 16:42:09.863 +05:30 [INF] 
+2023-10-17 16:42:09.863 +05:30 [INF] 
+2023-10-17 16:42:09.901 +05:30 [INF] 24282 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\ewer\0000 1111 2222.pdf
+
+2023-10-17 16:42:09.901 +05:30 [INF] 24273 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\ewer\0000 2222 2222.pdf
+
+2023-10-17 16:47:47.691 +05:30 [INF] 
+2023-10-17 16:47:47.723 +05:30 [INF] 25568 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\0000 2222 2222.pdf
+
+2023-10-17 16:47:48.153 +05:30 [INF] 
+2023-10-17 16:47:48.153 +05:30 [INF] 25576 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\0000 1111 2222.pdf
+
+2023-10-17 16:50:14.794 +05:30 [INF] 
+2023-10-17 16:50:14.835 +05:30 [INF] 25584 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 2222 2222.pdf
+
+2023-10-17 16:50:14.860 +05:30 [INF] 
+2023-10-17 16:50:14.860 +05:30 [INF] 25591 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 1111 2222.pdf
+
+2023-10-17 16:57:33.834 +05:30 [INF] 
+2023-10-17 16:57:33.834 +05:30 [INF] 25591 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 1111 2222.pdf
+
+2023-10-17 16:57:33.836 +05:30 [INF] 
+2023-10-17 16:57:33.836 +05:30 [INF] 25584 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 2222 2222.pdf
+
+2023-10-17 17:05:02.979 +05:30 [INF] 
+2023-10-17 17:05:02.979 +05:30 [INF] 25205 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 1111 2222.pdf
+
+2023-10-17 17:05:02.980 +05:30 [INF] 
+2023-10-17 17:05:02.980 +05:30 [INF] 25199 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 2222 2222.pdf
+
+2023-10-17 17:05:33.575 +05:30 [INF] 
+2023-10-17 17:05:33.576 +05:30 [INF] 25199 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 2222 2222.pdf
+
+2023-10-17 17:05:33.919 +05:30 [INF] 
+2023-10-17 17:05:33.919 +05:30 [INF] 25205 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 1111 2222.pdf
+
+2023-10-17 17:06:09.527 +05:30 [INF] 
+2023-10-17 17:06:09.573 +05:30 [INF] 25258 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 2222 2222.pdf
+
+2023-10-17 17:06:13.084 +05:30 [INF] 
+2023-10-17 17:06:13.084 +05:30 [INF] 25264 bytes written to file C:\Users\chaud\source\repos\Widget\WidgetDesignerAPI\WidgetDesignerAPI\wwwroot\HTMLPDFs\Aadhar\0000 1111 2222.pdf
+
