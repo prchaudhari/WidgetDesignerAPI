@@ -13,5 +13,6 @@ namespace WidgetDesignerAPI.API.Data
         public DbSet<Pages> Pages { get; set; }
         public DbSet<PageWidgetsDetails> PageWidgetsDetails { get; set; }
         public DbSet<Fonts> Fonts { get; set; }
+        public DbSet<PageGenerationLog> PageGenerationLog { get; set; }
     }
 }

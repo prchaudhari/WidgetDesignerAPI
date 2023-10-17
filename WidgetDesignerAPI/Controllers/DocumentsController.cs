@@ -27,7 +27,7 @@ namespace WidgetDesignerAPI.API.Controllers
 
         [HttpPost]
         [Route("{templateid:int}")]
-        public async Task<bool> CreatePDfs([FromRoute] int templateid, [FromBody] List<dynamic> jsonDataList)
+        public async Task<bool> CreatePDfs([FromRoute] int templateid)
         {
             //try
             //{
@@ -167,7 +167,7 @@ namespace WidgetDesignerAPI.API.Controllers
 
             for (int i=0; i < filepath.Length; i++)
             {
-                await CopyHTML(filepath[i]);
+                await CreateHTMLandPDF(filepath[i]);
                 var outFileName = filepath[i].Replace(".html", ".pdf");
                 string outputPath = $"E:\\QuikSyncProjects\\Dynamic Html creation\\" + outFileName;         //"E:\\QuikSyncProjects\\Dynamic Html creation\\output.pdf";
                 string webpageUrl = $"E:\\QuikSyncProjects\\Dynamic Html creation\\" + filepath[i];    //$"E:\\QuikSyncProjects\\Dynamic Html creation\\tt.html";
@@ -228,7 +228,7 @@ namespace WidgetDesignerAPI.API.Controllers
         }
 
             // [Route("{GetPageWidgets/id:int}")]
-        private async Task<bool> CopyHTML(string filepath)
+        private async Task<bool> CreateHTMLandPDF(string filepath)
         {
             try
             {
@@ -242,6 +242,7 @@ namespace WidgetDesignerAPI.API.Controllers
                 {
                     // Copy the file to the destination folder
                     System.IO.File.Copy(fullpath, destinationPath, true); // The 'true' parameter overwrites the file if it already exists in the destination
+
                 }
                 else
                 {
