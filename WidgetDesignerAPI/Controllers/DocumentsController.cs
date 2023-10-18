@@ -146,6 +146,30 @@ namespace WidgetDesignerAPI.API.Controllers
                     .WithArguments(new[] { "--headless", "--disable-gpu", printcmd, webpageUrl })
                     .WithWorkingDirectory(AppDomain.CurrentDomain.BaseDirectory)
                       .ExecuteBufferedAsync();
+               
+                    var excelLogger = new ExcelLogger("log.xlsx"); // Provide the desired Excel file path
+
+                    var logEntry = new LogEntry
+                    {
+                        date = DateTime.Now.ToString("yyyy-MM-dd"),
+                        time = DateTime.Now.ToString("HH:mm:ss"),
+                        // message = $"{page.FileName}.html and {page.FileName}.pdf is created",
+                        message = $"For Template {printPage.PageName} {page.FileName} .html and {page.FileName} .pdf file is created successfully",
+                        pagename = printPage.PageName,
+                        filePath = outputPath,
+                    };
+                try
+                {
+                    string logLevel = LogLevel.Information.ToString(); // Modify this as needed
+
+                    excelLogger.LogToExcel(logEntry.date, logEntry.time, logLevel, logEntry.message, logEntry.filePath);
+                }
+                catch (Exception ex)
+                {
+                    string logLevel = LogLevel.Information.ToString(); // Modify this as needed
+
+                    excelLogger.LogToExcel(logEntry.date, logEntry.time, logLevel, logEntry.message, logEntry.filePath);
+                }
 
                 Log.Information("For Template " + printPage.PageName + " "+ page.FileName + ".html and " + page.FileName + ".pdf file is created successfully on " + outputPath );
                 //Log.Information(result.StandardError);
