@@ -7,6 +7,287 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="PDFDocuments\add-page.component.css" />
+    <None Remove="PDFDocuments\app.component.css" />
+    <None Remove="PDFDocuments\assets\.gitkeep" />
+    <None Remove="PDFDocuments\assets\aaa4.png" />
+    <None Remove="PDFDocuments\assets\adharProfile.jpg" />
+    <None Remove="PDFDocuments\assets\dynamicThemes\cssTheme1.css" />
+    <None Remove="PDFDocuments\assets\dynamicThemes\cssTheme2.css" />
+    <None Remove="PDFDocuments\assets\dynamicThemes\cssTheme3.css" />
+    <None Remove="PDFDocuments\assets\iconG.png" />
+    <None Remove="PDFDocuments\assets\images.png" />
+    <None Remove="PDFDocuments\assets\img.jpg" />
+    <None Remove="PDFDocuments\assets\img\AdminLTELogo.png" />
+    <None Remove="PDFDocuments\assets\img\avatar.png" />
+    <None Remove="PDFDocuments\assets\img\avatar2.png" />
+    <None Remove="PDFDocuments\assets\img\avatar3.png" />
+    <None Remove="PDFDocuments\assets\img\avatar4.png" />
+    <None Remove="PDFDocuments\assets\img\avatar5.png" />
+    <None Remove="PDFDocuments\assets\img\boxed-bg.jpg" />
+    <None Remove="PDFDocuments\assets\img\boxed-bg.png" />
+    <None Remove="PDFDocuments\assets\img\credit\american-express.png" />
+    <None Remove="PDFDocuments\assets\img\credit\cirrus.png" />
+    <None Remove="PDFDocuments\assets\img\credit\mastercard.png" />
+    <None Remove="PDFDocuments\assets\img\credit\paypal.png" />
+    <None Remove="PDFDocuments\assets\img\credit\paypal2.png" />
+    <None Remove="PDFDocuments\assets\img\credit\visa.png" />
+    <None Remove="PDFDocuments\assets\img\default-150x150.png" />
+    <None Remove="PDFDocuments\assets\img\icons.png" />
+    <None Remove="PDFDocuments\assets\img\img_logo.gif" />
+    <None Remove="PDFDocuments\assets\img\photo1.png" />
+    <None Remove="PDFDocuments\assets\img\photo2.png" />
+    <None Remove="PDFDocuments\assets\img\photo3.jpg" />
+    <None Remove="PDFDocuments\assets\img\photo4.jpg" />
+    <None Remove="PDFDocuments\assets\img\prod-1.jpg" />
+    <None Remove="PDFDocuments\assets\img\prod-2.jpg" />
+    <None Remove="PDFDocuments\assets\img\prod-3.jpg" />
+    <None Remove="PDFDocuments\assets\img\prod-4.jpg" />
+    <None Remove="PDFDocuments\assets\img\prod-5.jpg" />
+    <None Remove="PDFDocuments\assets\img\satya.jpeg" />
+    <None Remove="PDFDocuments\assets\img\user1-128x128.jpg" />
+    <None Remove="PDFDocuments\assets\img\user2-160x160.jpg" />
+    <None Remove="PDFDocuments\assets\img\user3-128x128.jpg" />
+    <None Remove="PDFDocuments\assets\img\user4-128x128.jpg" />
+    <None Remove="PDFDocuments\assets\img\user5-128x128.jpg" />
+    <None Remove="PDFDocuments\assets\img\user6-128x128.jpg" />
+    <None Remove="PDFDocuments\assets\img\user7-128x128.jpg" />
+    <None Remove="PDFDocuments\assets\img\user8-128x128.jpg" />
+    <None Remove="PDFDocuments\assets\json.png" />
+    <None Remove="PDFDocuments\assets\logosatya.jpg" />
+    <None Remove="PDFDocuments\assets\sampleAdharNumber.jpg" />
+    <None Remove="PDFDocuments\assets\sampleAdharQr.jpg" />
+    <None Remove="PDFDocuments\assets\sampleBody.jpg" />
+    <None Remove="PDFDocuments\assets\sampledata1.png" />
+    <None Remove="PDFDocuments\assets\sampleHeader.jpg" />
+    <None Remove="PDFDocuments\assets\satya.jpg" />
+    <None Remove="PDFDocuments\cssTheme1.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PDFDocuments\add-page.component.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\app.component.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\.gitkeep">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\aaa4.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\adharProfile.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\dynamicThemes\cssTheme1.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\dynamicThemes\cssTheme2.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\dynamicThemes\cssTheme3.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\iconG.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\images.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\AdminLTELogo.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\avatar.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\avatar2.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\avatar3.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\avatar4.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\avatar5.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\boxed-bg.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\boxed-bg.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\credit\american-express.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\credit\cirrus.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\credit\mastercard.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\credit\paypal.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\credit\paypal2.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\credit\visa.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\default-150x150.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\icons.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\img_logo.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\photo1.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\photo2.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\photo3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\photo4.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\prod-1.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\prod-2.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\prod-3.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\prod-4.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\prod-5.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\satya.jpeg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user1-128x128.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user2-160x160.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user3-128x128.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user4-128x128.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user5-128x128.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user6-128x128.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user7-128x128.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\img\user8-128x128.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\json.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\logosatya.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\sampleAdharNumber.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\sampleAdharQr.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\sampleBody.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\sampledata1.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\sampleHeader.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\assets\satya.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="PDFDocuments\cssTheme1.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CliWrap" Version="3.6.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.9">

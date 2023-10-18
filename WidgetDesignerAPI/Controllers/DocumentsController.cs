@@ -1,13 +1,9 @@
 ﻿using CliWrap;
 using CliWrap.Buffered;
-using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using PuppeteerSharp;
 using Serilog;
-using System;
-using System.Diagnostics;
 using System.Dynamic;
 using System.Reflection;
 using WidgetDesignerAPI.API.Data;
@@ -31,32 +27,14 @@ namespace WidgetDesignerAPI.API.Controllers
         [Route("{templateid:int}")]
         public async Task<bool> CreatePDfs([FromRoute] int templateid)
         {
-            var pageGenerationLog = await _widgetDesignerAPIDbContext.PageGenerationLog.Where(a => a.PageId == templateid).ToListAsync();
+            var pageGenerationLog = await _widgetDesignerAPIDbContext.PageGenerationLog.Where(a => a.PageId == templateid && a.Status==false).ToListAsync();
             foreach(var page in pageGenerationLog)
             {
                 await CreateHTMLandPDF(page);
                 page.Status = true;
                 page.CreationTime = DateTime.Now;
-
                 await _widgetDesignerAPIDbContext.SaveChangesAsync();
-
             }
-
-
-            /*string chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-            string outputPath = "E:\\QuikSyncProjects\\Dynamic Html creation\\output.pdf";
-            string webpageUrl = $"E:\\QuikSyncProjects\\Dynamic Html creation\\tt.html";
-            string command = $"\"{chromePath}\"";
-            string printcmd = $"--print-to-pdf={outputPath}";
-
-            var result = await Cli.Wrap(command)
-                .WithArguments(new [] { "--headless", "--disable-gpu", printcmd, webpageUrl })
-                .WithWorkingDirectory(AppDomain.CurrentDomain.BaseDirectory)
-                  .ExecuteBufferedAsync();
-
-            Log.Information(result.StandardOutput);
-            Log.Information(result.StandardError);
-            */
 
             return true;
         }
@@ -135,13 +113,16 @@ namespace WidgetDesignerAPI.API.Controllers
             try
             {               
                 // Get the wwwroot path
-                var wwwrootPath = Path.Combine(_webHostEnvironment.WebRootPath);
-
+                var rootFolderPath = Path.Combine(_webHostEnvironment.WebRootPath);
+                var builder = new ConfigurationBuilder()
+                                .SetBasePath(Directory.GetCurrentDirectory())
+                                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                rootFolderPath = builder.Build().GetSection("PDFPath").GetSection("HTMLPDFPath").Value;
                 // Specify the folder name you want to create
                 var printPage = this._widgetDesignerAPIDbContext.Pages.Where(a => a.Id == page.PageId).FirstOrDefault();
 
                 // Combine the wwwroot path with the folder name
-                var folderPath = Path.Combine(wwwrootPath+"\\HTMLPDFs", printPage.PageName);
+                var folderPath = Path.Combine(rootFolderPath, printPage.PageName);
                 
                 // Check if the folder already exists
                 if (!Directory.Exists(folderPath))
@@ -169,28 +150,10 @@ namespace WidgetDesignerAPI.API.Controllers
                 Log.Information(result.StandardOutput);
                 Log.Information(result.StandardError);
 
-
-
-                //var fullpath = $"C:\\Users\\chaud\\Downloads\\" + filepath; 
-                //string fileName =  Path.GetFileName(fullpath); // Get the file name from the source file path
-                //string destinationPath = Path.Combine("E:\\QuikSyncProjects\\Dynamic Html creation\\", filepath); // Combine the destination folder and file name
-
-                //// Check if the source file exists
-                //if (System.IO.File.Exists(fullpath))
-                //{
-                //    // Copy the file to the destination folder
-                //    System.IO.File.Copy(fullpath, destinationPath, true); // The 'true' parameter overwrites the file if it already exists in the destination
-
-                //}
-                //else
-                //{
-                //    // Handle the case where the source file doesn't exist
-                //    Console.WriteLine("Source file does not exist.");
-                //    return false;
-                //}
             }
             catch (Exception ex)
             {
+                Log.Information(ex.Message);
                 // Handle any exceptions that may occur during the file copy process
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return false;
