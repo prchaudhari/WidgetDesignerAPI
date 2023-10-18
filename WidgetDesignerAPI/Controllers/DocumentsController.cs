@@ -147,13 +147,14 @@ namespace WidgetDesignerAPI.API.Controllers
                     .WithWorkingDirectory(AppDomain.CurrentDomain.BaseDirectory)
                       .ExecuteBufferedAsync();
 
-                Log.Information(result.StandardOutput);
-                Log.Information(result.StandardError);
+                Log.Information("For Template " + printPage.PageName + " "+ page.FileName + ".html and " + page.FileName + ".pdf file is created successfully on " + outputPath );
+                //Log.Information(result.StandardError);
 
             }
             catch (Exception ex)
             {
-                Log.Information(ex.Message);
+                var printPage = this._widgetDesignerAPIDbContext.Pages.Where(a => a.Id == page.PageId).FirstOrDefault();
+                Log.Information("Failed to create " + page.FileName + ".html and " + page.FileName + ".pdf file " + "For Template " + printPage.PageName + "Error = " + ex.Message);
                 // Handle any exceptions that may occur during the file copy process
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return false;
