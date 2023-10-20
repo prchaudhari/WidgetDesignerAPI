@@ -5,12 +5,9 @@
 namespace WidgetDesignerAPI.API.Migrations
 {
     /// <inheritdoc />
-    public partial class widgetEnitialDataMigration : Migration
+    public partial class widgetEnitialDataMigrationNew : Migration
     {
         /// <inheritdoc />
-       
-
-
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.InsertData(
@@ -25,7 +22,7 @@ namespace WidgetDesignerAPI.API.Migrations
                  "AdharCardHeader", "fa fa-address-card", "0", "0" },
 
                    { "Photo", "Profile photo for Adharcard", "{\"src\":\"assets/adharProfile.jpg\"}", "2", "68",
-               "<div ><img class=\"profilephoto\" src={{:src}}></img></div>", "fc1cf209-20da-4c27-8e17-ac535e2e786dadharphoto1.png", 
+               "<div ><img class=\"profilephoto\" src={{:src}}></img></div>", "fc1cf209-20da-4c27-8e17-ac535e2e786dadharphoto1.png",
                "NULL", "NULL",
                  "Photo", "fa fa-id-badge", "0", "0" },
 
