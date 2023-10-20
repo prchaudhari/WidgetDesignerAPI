@@ -12,8 +12,8 @@ using WidgetDesignerAPI.API.Data;
 namespace WidgetDesignerAPI.API.Migrations
 {
     [DbContext(typeof(WidgetDesignerAPIDbContext))]
-    [Migration("20230825142524_widgetEnitialData")]
-    partial class widgetEnitialData
+    [Migration("20231020113330_widgetEnitialDataMigration")]
+    partial class widgetEnitialDataMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,37 @@ namespace WidgetDesignerAPI.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Fonts");
+                });
+
+            modelBuilder.Entity("WidgetDesignerAPI.Models.PageGenerationLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreationTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("FullHTML")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PageId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PageGenerationLog");
                 });
 
             modelBuilder.Entity("WidgetDesignerAPI.Models.PageWidgetsDetails", b =>
@@ -104,6 +135,13 @@ namespace WidgetDesignerAPI.API.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("PageContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("PageHeight")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("PageHtml")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -112,6 +150,9 @@ namespace WidgetDesignerAPI.API.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<decimal?>("PageWidth")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -216,7 +257,7 @@ namespace WidgetDesignerAPI.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WidgetDesignerAPI.Models.Pages", "Widget")
+                    b.HasOne("WidgetDesignerAPI.Models.Widgets", "Widget")
                         .WithMany()
                         .HasForeignKey("WidgetId")
                         .OnDelete(DeleteBehavior.Cascade)
