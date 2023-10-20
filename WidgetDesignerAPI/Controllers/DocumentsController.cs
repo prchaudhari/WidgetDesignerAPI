@@ -1,13 +1,9 @@
 ﻿using CliWrap;
 using CliWrap.Buffered;
-using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using PuppeteerSharp;
 using Serilog;
-using System;
-using System.Diagnostics;
 using System.Dynamic;
 using System.Reflection;
 using WidgetDesignerAPI.API.Data;
@@ -28,106 +24,88 @@ namespace WidgetDesignerAPI.API.Controllers
         }
 
         [HttpPost]
-        [Route("{templateid:int}")]
-        public async Task<bool> CreatePDfs([FromRoute] int templateid)
+        [Route("CreatePDfs")]
+        public async Task<bool> CreatePDfs([FromBody] int templateid)
         {
-            var pageGenerationLog = await _widgetDesignerAPIDbContext.PageGenerationLog.Where(a => a.PageId == templateid).ToListAsync();
+            var pageGenerationLog = await _widgetDesignerAPIDbContext.PageGenerationLog.Where(a => a.PageId == templateid && a.Status==false).ToListAsync();
             foreach(var page in pageGenerationLog)
             {
                 await CreateHTMLandPDF(page);
                 page.Status = true;
                 page.CreationTime = DateTime.Now;
-
                 await _widgetDesignerAPIDbContext.SaveChangesAsync();
-
             }
-
-
-            /*string chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-            string outputPath = "E:\\QuikSyncProjects\\Dynamic Html creation\\output.pdf";
-            string webpageUrl = $"E:\\QuikSyncProjects\\Dynamic Html creation\\tt.html";
-            string command = $"\"{chromePath}\"";
-            string printcmd = $"--print-to-pdf={outputPath}";
-
-            var result = await Cli.Wrap(command)
-                .WithArguments(new [] { "--headless", "--disable-gpu", printcmd, webpageUrl })
-                .WithWorkingDirectory(AppDomain.CurrentDomain.BaseDirectory)
-                  .ExecuteBufferedAsync();
-
-            Log.Information(result.StandardOutput);
-            Log.Information(result.StandardError);
-            */
 
             return true;
         }
 
-        [HttpPost]
-        [Route("GetPDF")]
-        public async Task<bool> GetPDF([FromBody] string[] filepath)
-        {
-            string chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+        //[HttpPost]
+        //[Route("GetPDF")]
+        //public async Task<bool> GetPDF([FromBody] string[] filepath)
+        //{
+        //    string chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 
-            for (int i=0; i < filepath.Length; i++)
-            {
-               // await CreateHTMLandPDF(filepath[i]);
-                var outFileName = filepath[i].Replace(".html", ".pdf");
-                string outputPath = $"E:\\QuikSyncProjects\\Dynamic Html creation\\" + outFileName;         //"E:\\QuikSyncProjects\\Dynamic Html creation\\output.pdf";
-                string webpageUrl = $"E:\\QuikSyncProjects\\Dynamic Html creation\\" + filepath[i];    //$"E:\\QuikSyncProjects\\Dynamic Html creation\\tt.html";
-                string command = $"\"{chromePath}\"";
-                // var command = $@"""{chromePath}""";
-                string printcmd = $"--print-to-pdf={outputPath}";
+        //    for (int i=0; i < filepath.Length; i++)
+        //    {
+        //       // await CreateHTMLandPDF(filepath[i]);
+        //        var outFileName = filepath[i].Replace(".html", ".pdf");
+        //        string outputPath = $"E:\\QuikSyncProjects\\Dynamic Html creation\\" + outFileName;         //"E:\\QuikSyncProjects\\Dynamic Html creation\\output.pdf";
+        //        string webpageUrl = $"E:\\QuikSyncProjects\\Dynamic Html creation\\" + filepath[i];    //$"E:\\QuikSyncProjects\\Dynamic Html creation\\tt.html";
+        //        string command = $"\"{chromePath}\"";
+        //        // var command = $@"""{chromePath}""";
+        //        string printcmd = $"--print-to-pdf={outputPath}";
 
-                //  var command = $@" --headless --disable-gpu --print-to-pdf=""{outputPath}"" {webpageUrl}";
-                //  var cmd = $@""{chromePath}"";
-                //   return Ok(command);
-                var result = await Cli.Wrap(command)
-                    .WithArguments(new[] { "--headless", "--disable-gpu", printcmd, webpageUrl })
-                    .WithWorkingDirectory(AppDomain.CurrentDomain.BaseDirectory)
-                      .ExecuteBufferedAsync();
+        //        //  var command = $@" --headless --disable-gpu --print-to-pdf=""{outputPath}"" {webpageUrl}";
+        //        //  var cmd = $@""{chromePath}"";
+        //        //   return Ok(command);
+        //        var result = await Cli.Wrap(command)
+        //            .WithArguments(new[] { "--headless", "--disable-gpu", printcmd, webpageUrl })
+        //            .WithWorkingDirectory(AppDomain.CurrentDomain.BaseDirectory)
+        //              .ExecuteBufferedAsync();
 
-                Log.Information(result.StandardOutput);
-                Log.Information(result.StandardError);
-            }
-            //using (Process process = new Process())
-            //{
-            //    process.StartInfo.FileName = "cmd.exe";
-            //    process.StartInfo.Arguments = $"/C {command}";
-            //    process.StartInfo.UseShellExecute = false;
-            //    process.StartInfo.RedirectStandardOutput = true;
-            //    process.Start();
-            //    process.WaitForExit();
-            //}
-            //CreateHTMLFile(htmlContent);
-            //try
-            //{
-            //    using (Process process = new Process())
-            //    {
-            //        process.StartInfo.FileName = "cmd.exe";
-            //        process.StartInfo.Arguments = $"/C {command}";
-            //        process.StartInfo.UseShellExecute = false;
-            //        process.StartInfo.RedirectStandardOutput = true;
-            //        process.StartInfo.RedirectStandardError = true;
-            //        process.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;  // Set the working directory if needed
+        //        Log.Information(result.StandardOutput);
+        //        Log.Information(result.StandardError);
+        //    }
+        //    //using (Process process = new Process())
+        //    //{
+        //    //    process.StartInfo.FileName = "cmd.exe";
+        //    //    process.StartInfo.Arguments = $"/C {command}";
+        //    //    process.StartInfo.UseShellExecute = false;
+        //    //    process.StartInfo.RedirectStandardOutput = true;
+        //    //    process.Start();
+        //    //    process.WaitForExit();
+        //    //}
+        //    //CreateHTMLFile(htmlContent);
+        //    //try
+        //    //{
+        //    //    using (Process process = new Process())
+        //    //    {
+        //    //        process.StartInfo.FileName = "cmd.exe";
+        //    //        process.StartInfo.Arguments = $"/C {command}";
+        //    //        process.StartInfo.UseShellExecute = false;
+        //    //        process.StartInfo.RedirectStandardOutput = true;
+        //    //        process.StartInfo.RedirectStandardError = true;
+        //    //        process.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory;  // Set the working directory if needed
 
-            //        process.Start();
-            //        string output = process.StandardOutput.ReadToEnd();
-            //        string errorOutput = process.StandardError.ReadToEnd();
+        //    //        process.Start();
+        //    //        string output = process.StandardOutput.ReadToEnd();
+        //    //        string errorOutput = process.StandardError.ReadToEnd();
 
-            //        process.WaitForExit();
+        //    //        process.WaitForExit();
 
-            //        // You can handle the output and errorOutput as needed
-            //        Console.WriteLine("Command Output:");
-            //        Console.WriteLine(output);
-            //        Console.WriteLine("Error Output:");
-            //        Console.WriteLine(errorOutput);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine($"An error occurred: {ex.Message}");
-            //}
-            return true;
-        }
+        //    //        // You can handle the output and errorOutput as needed
+        //    //        Console.WriteLine("Command Output:");
+        //    //        Console.WriteLine(output);
+        //    //        Console.WriteLine("Error Output:");
+        //    //        Console.WriteLine(errorOutput);
+        //    //    }
+        //    //}
+        //    //catch (Exception ex)
+        //    //{
+        //    //    Console.WriteLine($"An error occurred: {ex.Message}");
+        //    //}
+        //    return true;
+        //}
 
             // [Route("{GetPageWidgets/id:int}")]
         private async Task<bool> CreateHTMLandPDF(PageGenerationLog page)
@@ -135,13 +113,16 @@ namespace WidgetDesignerAPI.API.Controllers
             try
             {               
                 // Get the wwwroot path
-                var wwwrootPath = Path.Combine(_webHostEnvironment.WebRootPath);
-
+                var rootFolderPath = Path.Combine(_webHostEnvironment.WebRootPath);
+                var builder = new ConfigurationBuilder()
+                                .SetBasePath(Directory.GetCurrentDirectory())
+                                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                rootFolderPath = builder.Build().GetSection("PDFPath").GetSection("HTMLPDFPath").Value;
                 // Specify the folder name you want to create
                 var printPage = this._widgetDesignerAPIDbContext.Pages.Where(a => a.Id == page.PageId).FirstOrDefault();
 
                 // Combine the wwwroot path with the folder name
-                var folderPath = Path.Combine(wwwrootPath+"\\HTMLPDFs", printPage.PageName);
+                var folderPath = Path.Combine(rootFolderPath, printPage.PageName);
                 
                 // Check if the folder already exists
                 if (!Directory.Exists(folderPath))
@@ -165,32 +146,39 @@ namespace WidgetDesignerAPI.API.Controllers
                     .WithArguments(new[] { "--headless", "--disable-gpu", printcmd, webpageUrl })
                     .WithWorkingDirectory(AppDomain.CurrentDomain.BaseDirectory)
                       .ExecuteBufferedAsync();
+               
+                    var excelLogger = new ExcelLogger("log.xlsx"); // Provide the desired Excel file path
 
-                Log.Information(result.StandardOutput);
-                Log.Information(result.StandardError);
+                    var logEntry = new LogEntry
+                    {
+                        date = DateTime.Now.ToString("yyyy-MM-dd"),
+                        time = DateTime.Now.ToString("HH:mm:ss"),
+                        // message = $"{page.FileName}.html and {page.FileName}.pdf is created",
+                        message = $"For Template {printPage.PageName} {page.FileName} .html and {page.FileName} .pdf file is created successfully",
+                        pagename = printPage.PageName,
+                        filePath = outputPath,
+                    };
+                try
+                {
+                    string logLevel = LogLevel.Information.ToString(); // Modify this as needed
 
+                    excelLogger.LogToExcel(logEntry.date, logEntry.time, logLevel, logEntry.message, logEntry.filePath);
+                }
+                catch (Exception ex)
+                {
+                    string logLevel = LogLevel.Information.ToString(); // Modify this as needed
 
+                    excelLogger.LogToExcel(logEntry.date, logEntry.time, logLevel, logEntry.message, logEntry.filePath);
+                }
 
-                //var fullpath = $"C:\\Users\\chaud\\Downloads\\" + filepath; 
-                //string fileName =  Path.GetFileName(fullpath); // Get the file name from the source file path
-                //string destinationPath = Path.Combine("E:\\QuikSyncProjects\\Dynamic Html creation\\", filepath); // Combine the destination folder and file name
+                Log.Information("For Template " + printPage.PageName + " "+ page.FileName + ".html and " + page.FileName + ".pdf file is created successfully on " + outputPath );
+                //Log.Information(result.StandardError);
 
-                //// Check if the source file exists
-                //if (System.IO.File.Exists(fullpath))
-                //{
-                //    // Copy the file to the destination folder
-                //    System.IO.File.Copy(fullpath, destinationPath, true); // The 'true' parameter overwrites the file if it already exists in the destination
-
-                //}
-                //else
-                //{
-                //    // Handle the case where the source file doesn't exist
-                //    Console.WriteLine("Source file does not exist.");
-                //    return false;
-                //}
             }
             catch (Exception ex)
             {
+                var printPage = this._widgetDesignerAPIDbContext.Pages.Where(a => a.Id == page.PageId).FirstOrDefault();
+                Log.Information("Failed to create " + page.FileName + ".html and " + page.FileName + ".pdf file " + "For Template " + printPage.PageName + "Error = " + ex.Message);
                 // Handle any exceptions that may occur during the file copy process
                 Console.WriteLine($"An error occurred: {ex.Message}");
                 return false;
